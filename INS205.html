@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSC Assignment - YAU MUHAMMAD IDRIS</title>
+
+    <style>
+        /* ==========================
+           General Page Styling
+           This section styles the body,
+           fonts, colours and spacing.
+        =========================== */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        /* Style for the main page heading */
+        h1 {
+            text-align: center;
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            margin: 0;
+            font-size: 36px;
+        }
+
+        /* Container holding all sections */
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* Section styling */
+        section {
+            background: white;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            color: #003366;
+        }
+
+        /* Styling the email button */
+        #send-btn {
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+
+        #send-btn:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            background: #003366;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Main Page Heading -->
+    <h1>WELL COME TO MY INS 205 ASSINGMENT PAGE</h1>
+
+    <div class="container">
+
+        <!-- ==========================
+             Introduction Section
+             Contains personal details.
+        =========================== -->
+        <section>
+            <h2>About Me</h2>
+
+            <p><strong>Full Name:</strong> YAU MUHAMMAD IDRIS</p>
+
+            <p><strong>Department:</strong> Computer Science</p>
+
+            <p><strong>Matriculation Number:</strong> UJ/2025/CP/0231</p>
+
+            <p><strong>Level:</strong> 200 Level</p>
+
+            <p>
+                I am a Computer Science student at the University of Jos.
+                I enjoy learning web development, programming and solving
+                technology-related problems. My goal is to become a skilled
+                software developer and contribute to innovative digital solutions.
+            </p>
+        </section>
+
+        <!-- ==========================
+             Course Section
+             Explains the purpose of
+             the webpage.
+        =========================== -->
+        <section>
+            <h2>About This Web Page</h2>
+
+            <p>
+                This webpage was created as part of my HTML and CSS assessment.
+                It demonstrates the use of HTML5 semantic elements together with
+                internal CSS styling. The page contains different sections,
+                a styled heading and a functional email button.
+            </p>
+
+            <p>
+                The assignment relates to my introductory web development course,
+                where we learn how to design static webpages using HTML5 and CSS
+                without relying on external frameworks.
+            </p>
+        </section>
+
+        <!-- ==========================
+             Contact Section
+             Contains a working mailto
+             button.
+        =========================== -->
+        <section>
+            <h2>Contact Me</h2>
+
+            <p>
+                If you would like to reach me, kindly click the button below.
+            </p>
+
+            <a href="mailto:2025cp0231@unijos.edu.ng">
+                <button id="send-btn">Send Email</button>
+            </a>
+
+        </section>
+
+    </div>
+
+    <footer>
+        &copy; 2026 YAU MUHAMMAD IDRIS | Computer Science Department
+    </footer>
+
+    <script>
+        /* -------------------------------------------------------
+           Matric-number → button colour
+           Replace the matric value below with your own number.
+           ------------------------------------------------------- */
+        const matric = "UJ/2025/CP/0231"; // <-- CHANGE THIS TO YOUR MAT. NO.
+
+        /* CHANGE NOTHING BEYOND THIS POINT - CHANGE NOTHING BEYOND THIS POINT */
+
+        function hashString(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
+            }
+            return hash;
+        }
+
+        // Normalise input
+        const normalised = matric.trim().toUpperCase();
+
+        // Map the hash to a hue value between 0 and 359 degrees
+        const hue = hashString(normalised) % 360;
+
+        // Build an HSL colour: fixed saturation & lightness, varying hue
+        const buttonColour = `hsl(${hue}, 65%, 45%)`;
+
+        // Apply the colour to the Send Email button
+        document.getElementById("send-btn").style.background = buttonColour;
+    </script>
+
+</body>
+</html>
